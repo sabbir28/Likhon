@@ -30,8 +30,8 @@ plugins {
 val projectMinSdk: String by project
 val projectTargetSdk: String by project
 val projectCompileSdk: String by project
-val projectBuildToolsVersion: String by project
-val projectNdkVersion: String by project
+val projectBuildToolsVersion = project.findProperty("build.tools.version") as String
+val projectNdkVersion: String = project.findProperty("build.ndk.version") as String
 val projectVersionCode: String by project
 val projectVersionName: String by project
 val projectVersionNameSuffix = projectVersionName.substringAfter("-", "")
@@ -150,6 +150,7 @@ android {
 
     aboutLibraries {
         configPath = "app/src/main/config"
+        excludeFields = arrayOf("generated")
     }
 
     testOptions {
