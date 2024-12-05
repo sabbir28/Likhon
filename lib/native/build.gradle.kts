@@ -5,7 +5,7 @@ plugins {
 
 val projectMinSdk: String by project
 val projectCompileSdk: String by project
-val projectNdkVersion: String by project
+val projectNdkVersion = project.findProperty("build.ndk.version") as String
 
 android {
     namespace = "org.florisboard.libnative"
